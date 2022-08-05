@@ -5,7 +5,7 @@ $win_xyz = enum-childWindowsFiltered {
 
    $title = get-windowText $hWnd
 
-   return $title -match '07-29'
+   return $title -match 'xyz'
 }
 
 if ($win_xyz.count -ne 1) {
