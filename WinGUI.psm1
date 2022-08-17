@@ -160,8 +160,8 @@ function get-childWindowsFiltered {
    }
 
    class prm {
-      [System.Collections.Generic.List[win]]       $wins
-      [scriptBlock] $flt
+      [System.Collections.Generic.List[win]]  $wins
+      [scriptBlock]                           $flt
    }
 
 
@@ -177,7 +177,7 @@ function get-childWindowsFiltered {
 
       if (invoke-command $pp.flt -argumentList $hWnd) {
 
-           $win = new-object win
+           $win       = new-object win
            $win.hWnd  = $hWnd
            $win.title = get-windowText      $hWnd
            $win.class = get-windowClassName $hWnd
