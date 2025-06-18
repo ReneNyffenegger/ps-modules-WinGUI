@@ -8,7 +8,6 @@ using System.Runtime.InteropServices;
 
 public class WinGUI {
 
-
   [StructLayout(LayoutKind.Sequential)]
    public struct RECT {
         public int Left;
@@ -287,7 +286,7 @@ function find-windowEx {
 
    param (
       [IntPtr] $hWndParent,
-      [IntPtr] $hWndChildAfter,
+      [IntPtr] $hWndChildAfter  =  0,
       [string] $className       = '',
       [string] $windowTitle     = ''
    )
