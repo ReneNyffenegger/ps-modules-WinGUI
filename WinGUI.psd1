@@ -1,12 +1,10 @@
 @{
    RootModule         = 'WinGUI'
-   ModuleVersion      = '0.2'
+   ModuleVersion      = '0.3'
 
-   RequiredAssemblies = @(
-   )
+   RequiredAssemblies = @()
 
-   RequiredModules    = @(
-   )
+   RequiredModules    = @()
 
    FunctionsToExport  = @(
     #
@@ -35,6 +33,5 @@
      'enum-childWindowsFiltered'
    )
 
-   FormatsToProcess   = @(
-   )
+   FormatsToProcess   = @()
 }

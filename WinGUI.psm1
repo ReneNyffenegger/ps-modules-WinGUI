@@ -69,6 +69,14 @@ public class WinGUI {
       [MarshalAs(UnmanagedType.LPWStr)] string  lParam
    );
 
+  [DllImport("user32.dll", CharSet = CharSet.Unicode, EntryPoint = "SendMessageW")]
+   public static extern IntPtr SendMessageInt(
+       IntPtr                                   hWnd,
+       int                                      msg,
+       IntPtr                                   wParam,
+       int                                      lParam
+   );
+
   [DllImport("user32.dll", SetLastError=true)]
    public static extern IntPtr SetActiveWindow(
         IntPtr                                  hWnd
@@ -306,11 +314,14 @@ function send-windowMessage {
       [object] $lParam
    )
 
-   if ($lParam -is [string]) {
+   if     ($lParam -is [string]) {
       return [WinGUI]::SendMessageString($hWnd, $msg, $wParam, $lParam)
    }
+   elseif ($lParam -is [int]) {
+      return [WinGUI]::SendMessageInt(   $hWnd, $msg, $wParam, $lParam)
+   }
    else {
-      write-textinConsoleWarningColor "todo in send-windowMessage: implement me lParam is not string."
+      write-textinConsoleWarningColor "todo in send-windowMessage: implement me lParam is neither string nor int"
    }
 }
 
